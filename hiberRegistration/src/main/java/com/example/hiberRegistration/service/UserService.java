@@ -15,6 +15,12 @@ public class UserService {
 	@Autowired
 	UserRepository userRepo;
 
+	// Adding user into the database
+	public String addUser(User user) {
+		User user1 = userRepo.save(user);
+		return "User added into the database and it's id is " + user1.getId();
+	}
+
 	// Getting all the users
 	public List<User> getAllUser() {
 		List<User> users = userRepo.findAll();
@@ -33,22 +39,16 @@ public class UserService {
 		} catch (Exception e) {
 			return null;
 		}
-
-	}
-
-	// Adding user into the database
-	public String addUser(User user) {
-		User user1 = userRepo.save(user);
-		return "User added into the database and it's id is " + user1.getId();
 	}
 
 	// Deleting user from database
-	public String removeUser(Integer id) {
-		try {
-			userRepo.deleteById(id);
-		} catch (Exception e) {
-			return "User is already removed from database";
-		}
-		return "User is removed from database";
+	/*
+	 * public String removeUser(Integer id) { try { userRepo.deleteById(id); } catch
+	 * (Exception e) { return "User is already removed from database"; } return
+	 * "User is removed from database"; }
+	 */
+
+	public void removeUser(User user) {
+		userRepo.delete(user);
 	}
 }
