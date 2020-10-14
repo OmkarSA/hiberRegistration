@@ -37,6 +37,7 @@ public class UserController {
 	 * @GetMapping("/{id}") public User getUser(@PathVariable("id") Integer id) {
 	 * return userService.getUser(id); }
 	 */
+	//select by id method
 	@GetMapping("/{id}")
 	public ResponseEntity<User> getUser(@PathVariable("id") Integer id) {
 		User user = userService.getUser(id);
@@ -48,7 +49,7 @@ public class UserController {
 		return ResponseEntity.ok().body(user);
 	}
 
-	//update method
+	//update method 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable("id") Integer id, @RequestBody User userDetails) {
 		User user = userService.getUser(id);
