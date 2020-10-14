@@ -28,6 +28,7 @@ public class UserController {
 		return userService.addUser(user);
 	}
 
+	//select all method
 	@GetMapping("/all")
 	public List<User> getAllUser() {
 		return userService.getAllUser();
