@@ -48,6 +48,7 @@ public class UserController {
 		return ResponseEntity.ok().body(user);
 	}
 
+	//update method
 	@PutMapping("/update/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable("id") Integer id, @RequestBody User userDetails) {
 		User user = userService.getUser(id);
@@ -72,7 +73,7 @@ public class UserController {
 	 * Integer id) { return userService.removeUser(id); }
 	 */
 
-	
+	//delete method
 	@DeleteMapping("/remove/{id}")
 	public String removeUser(@PathVariable("id") Integer id) {
 		User user = userService.getUser(id);
